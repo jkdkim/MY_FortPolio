@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN" "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+
+
+<!-- 타일들 설정파일 -->
+<tiles-definitions>
+	<definition name="t:yeslogin" template="/WEB-INF/view/template4.jsp">
+		<put-attribute name="header" value="/WEB-INF/view/common/header.jsp"></put-attribute>
+		<put-attribute name="nav" value="/WEB-INF/view/common/nav.jsp"></put-attribute>
+		<put-attribute name="aside" value="/WEB-INF/view/2_Nav_L/1_Home/Happy.jsp"></put-attribute>
+		<put-attribute name="body" value="/WEB-INF/view/1_Header/my_feed.jsp"></put-attribute>
+
+	</definition>
+	<definition name="t:notlogin" template="/WEB-INF/view/template3.jsp">
+		<put-attribute name="header" value="/WEB-INF/view/login/loginView.jsp"></put-attribute>
+		<put-attribute name="nav" value="/WEB-INF/view/login/memberView.jsp"></put-attribute>
+		<put-attribute name="body" value="/WEB-INF/view/login/TermsOfUse.jsp"></put-attribute>
+	</definition>
+	<definition name="t:upview" extends="t:yeslogin">
+	</definition>
+	
+	<definition name="t:cateView"  extends="t:yeslogin">
+	
+		<put-attribute name="body" value="/WEB-INF/view/1_Header/cate1.jsp"></put-attribute>
+
+	</definition>
+	
+	<definition name="t:cart" template="/WEB-INF/view/template.jsp">
+		<put-attribute name="header" value="/WEB-INF/view/common/header.jsp"></put-attribute>
+		<put-attribute name="nav" value="/WEB-INF/view/common/nav.jsp"></put-attribute>
+		<put-attribute name="body" value="/WEB-INF/view/1_Header/cart.jsp"></put-attribute>
+	</definition>
+	<definition name="t:login" template="/WEB-INF/view/template2.jsp">
+		<put-attribute name="header" value="/WEB-INF/view/common/header.jsp"></put-attribute>
+		<put-attribute name="body" value="/WEB-INF/view/1_Header/cart.jsp"></put-attribute>
+	</definition>
+	<definition name="t:top" extends="t:login">
+		<put-attribute name="body" value="/WEB-INF/view/1_Header/recommend.jsp"></put-attribute>
+	</definition>
+	<definition name="t:profile" extends="t:yeslogin">
+		<put-attribute name="nav" value="/WEB-INF/view/2_Nav_L/1_Home/profile.jsp"></put-attribute>
+		<put-attribute name="body" value="/WEB-INF/view/1_Header/my_page.jsp"></put-attribute>
+	</definition>
+	
+	<definition name="t:potoList" template="/WEB-INF/view/template5.jsp">
+		<put-attribute name="header" value="/WEB-INF/view/common/header.jsp"></put-attribute>
+		<put-attribute name="body" value="/WEB-INF/view/my_album.jsp"></put-attribute>
+	</definition>
+
+	<definition name="t:manager" template="/WEB-INF/view/templateManager.jsp">
+		<put-attribute name="header" value="/WEB-INF/view/common/header.jsp"></put-attribute>
+		<put-attribute name="nav"
+			value="/WEB-INF/view/2_Nav_L/1_Home/manager.jsp"></put-attribute>
+		<put-attribute name="body"
+			value="/WEB-INF/view/1_Header/Manager_feed.jsp"></put-attribute>
+	</definition>
+
+	<definition name="t:question" extends="t:manager">
+		<put-attribute name="body" value="/WEB-INF/view/3_Body/qna.jsp"></put-attribute>
+	</definition>
+
+	<definition name="t:delete" extends="t:manager">
+		<put-attribute name="body"
+			value="/WEB-INF/view/1_Header/Manager_feed.jsp"></put-attribute>
+	</definition>
+	
+	<definition name="t:recommendlist" extends="t:manager">
+		<put-attribute name="body"
+			value="/WEB-INF/view/1_Header/recommendlist.jsp"></put-attribute>
+	</definition>
+
+	<definition name="t:myprofile" template="/WEB-INF/view/template.jsp">
+		<put-attribute name="header" value="/WEB-INF/view/common/header.jsp"></put-attribute>
+		<put-attribute name="nav" value="/WEB-INF/view/common/nav.jsp"></put-attribute>
+		<put-attribute name="body" value="/WEB-INF/view/1_Header/myprofile.jsp"></put-attribute>
+	</definition>
+	<definition name="t:memberout" template="/WEB-INF/view/templateManager.jsp">
+		<put-attribute name="header" value="/WEB-INF/view/common/header.jsp"></put-attribute>
+		<put-attribute name="nav"
+			value="/WEB-INF/view/2_Nav_L/1_Home/manager.jsp"></put-attribute>
+		<put-attribute name="body" value="/WEB-INF/view/login/memberout.jsp"></put-attribute>
+	</definition>
+	
+	
+	<definition name="t:managerMyProfile" extends="t:myprofile">
+	
+		<put-attribute name="nav" value="/WEB-INF/view/2_Nav_L/1_Home/manager.jsp"></put-attribute>
+	
+	</definition>
+	
+	<definition name="t:managerqnaf" extends="t:myprofile">
+      <put-attribute name="body" value="/WEB-INF/view/qna/boardWrite.jsp"></put-attribute>
+      <put-attribute name="nav" value="/WEB-INF/view/2_Nav_L/1_Home/manager.jsp"></put-attribute>
+   </definition>
+   
+   <definition name="t:managerqna" extends="t:myprofile">
+      <put-attribute name="body" value="/WEB-INF/view/qna/boardList.jsp"></put-attribute>
+      <put-attribute name="nav" value="/WEB-INF/view/2_Nav_L/1_Home/manager.jsp"></put-attribute>
+   </definition>
+   
+   <definition name="t:managerqnav" extends="t:myprofile">
+      <put-attribute name="body" value="/WEB-INF/view/qna/boardView.jsp"></put-attribute>
+      <put-attribute name="nav" value="/WEB-INF/view/2_Nav_L/1_Home/manager.jsp"></put-attribute>
+   </definition>
+
+	 <definition name="t:qna" extends="t:myprofile">
+      <put-attribute name="body" value="/WEB-INF/view/qna/boardList.jsp"></put-attribute>
+   </definition>
+   
+   <!-- 게시글 작성 -->
+   <definition name="t:qnaf" extends="t:myprofile">
+      <put-attribute name="body" value="/WEB-INF/view/qna/boardWrite.jsp"></put-attribute>
+   </definition>
+
+   <!-- 게시글 상세보기 -->
+   <definition name="t:qnav" extends="t:myprofile">
+      <put-attribute name="body" value="/WEB-INF/view/qna/boardView.jsp"></put-attribute>
+   </definition>
+
+
+</tiles-definitions>

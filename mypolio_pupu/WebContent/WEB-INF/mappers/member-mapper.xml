@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="member">
+	<insert id="addMember" parameterType="java.util.HashMap">
+		insert into member
+		values(#{id}, member_seq.nextval, #{name}, #{email}, #{address},
+		#{phone}, #{interest}, #{birth} ,#{gender}, sysdate , #{pass}, #{profile} )
+	</insert>
+	<insert id="addfollw" parameterType="java.lang.String">
+		insert into memberfollower values(#{id}, null)
+	</insert>
+	<update id="setFollw" parameterType="java.util.HashMap">
+		insert into memberfollower values (#{id}, #{followerid})
+	</update>
+  	<select id="checkFollow" parameterType="java.util.HashMap" resultType="java.lang.String">
+  		select id from memberfollower where id=#{id} and followerid = #{followerid}
+  	</select>
+  	<select id="getNickname" parameterType="java.lang.String" resultType="java.lang.String">
+  		select id from member where name=#{a}
+  	</select>
+  	<select id="showFollow" parameterType="java.lang.String" resultType="java.util.HashMap">
+  		select * from memberfollower where id=#{id}
+  	</select>
+	<select id="checkmember" resultType="java.lang.String"
+		parameterType="java.util.HashMap">
+		select * from member where
+		id= #{id} and pass = #{pass}
+	</select>
+	<select id="nickname" resultType="java.util.HashMap"
+		parameterType="java.lang.String">
+		select * from member where id= #{id}
+	</select>
+	<select id="overlapmember" parameterType="java.lang.String"
+		resultType="java.lang.String">
+		select * from member where id=#{id}
+	</select>
+	<select id="findpass" parameterType="java.util.HashMap"
+		resultType="java.util.HashMap">
+		select * from member where id=#{id } and name=#{name } and
+		email=#{email }
+	</select>
+	<select id="profile" resultType="java.util.HashMap"
+		parameterType="java.lang.String">
+		select * from member where id
+		=#{id}
+	</select>
+	<select id="allMember" resultType="java.util.HashMap">
+		select * from member
+	</select>
+	
+	<select id="checkpass" parameterType="java.util.HashMap" resultType="java.lang.String">
+		select pass from member where id=#{id} 
+	</select>
+	
+	<delete id="memberout" parameterType="java.lang.String">
+		delete from member where id= #{id}
+	</delete>
+	
+	<select id="modifypass" parameterType="java.lang.String" resultType="java.lang.String">
+		select pass from member where id=#{id}
+		
+	</select>
+
+	<update id="modify" parameterType="java.util.HashMap">
+		update member set
+		name=#{name}, birth=#{birth}, gender=#{gender},
+		phone=#{phone}, address=#{address},pass=#{pass}
+		where id = #{sessionId} 
+
+	</update>
+</mapper>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="qna">
+	<select id="qnaall" resultType="java.util.HashMap">
+		select * from qnaboard order by num desc
+	</select>
+
+	<select id="qnadetail" resultType="java.util.HashMap"
+		parameterType="java.lang.String">
+		select * from qnaboard where num = #{aa }
+	</select>
+
+	<insert id="qnacreate" parameterType="java.util.HashMap">
+		insert into qnaboard
+		values(qnaboard_seq.nextval, #{title}, #{id}, sysdate, #{answer},
+		0,#{content}, #{pass})
+	</insert>
+
+<!-- 게시글 상세보기 -->
+	<select id="qnaview" resultType="java.util.HashMap">
+		select*from qnaboard 
+		where title=#{tt } and content =#{cc } and writedate=#{ww}
+	</select>
+
+</mapper>
+
